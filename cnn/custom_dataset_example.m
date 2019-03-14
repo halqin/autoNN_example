@@ -25,7 +25,7 @@
 
 function custom_dataset_example(varargin)
   % options (override by calling script with name-value pairs)
-  opts.numEpochs = 10 ;  % number of epochs
+  opts.numEpochs = 1 ;  % number of epochs
   opts.batchSize = 200 ;  % batch size
   opts.learningRate = 0.01 ;  % learning rate
   opts.gpu = [] ;  % GPU index, empty for CPU mode
@@ -55,10 +55,10 @@ function custom_dataset_example(varargin)
 
   % assign layer names based on workspace variables ('images', 'objective')
   Layer.workspaceNames() ;
+%   Layer.plt
   
   % compile network
   net = Net(objective, error) ;
-%   net = Net(error);
   
   % show example images of the toy dataset (getSamples is defined below)
   figure(2) ;
