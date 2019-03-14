@@ -57,8 +57,8 @@ function custom_dataset_example(varargin)
   Layer.workspaceNames() ;
   
   % compile network
-%   net = Net(objective, error) ;
-  net = Net(error);
+  net = Net(objective, error) ;
+%   net = Net(error);
   
   % show example images of the toy dataset (getSamples is defined below)
   figure(2) ;
@@ -70,8 +70,7 @@ function custom_dataset_example(varargin)
   solver = solvers.SGD('learningRate', opts.learningRate) ;
   
   % compute average objective and error
-% stats = Stats({'objective', 'error'}) ;
-  stats = Stats({'error'});
+  stats = Stats({'objective', 'error'}) ;
   
   % enable GPU mode
   net.useGpu(opts.gpu) ;
