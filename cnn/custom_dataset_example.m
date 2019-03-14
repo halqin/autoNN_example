@@ -71,7 +71,7 @@ function custom_dataset_example(varargin)
   
   % compute average objective and error
 % stats = Stats({'objective', 'error'}) ;
-  stats = Stats({'error'}) ;
+  stats = Stats({'error'});
   
   % enable GPU mode
   net.useGpu(opts.gpu) ;
