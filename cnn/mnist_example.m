@@ -39,7 +39,7 @@ function [net, stats] = mnist_example(varargin)
   
   conv1 = vl_nnconv(images, 'size', [5, 5, 1, 20], 'weightScale', 0.01) ;
   pool1 = vl_nnpool(conv1, 2, 'stride', 2) ;
-  
+%   con1x1 = vl_nnconv(pool1, 'size', [1,1,20,5]); %checking how 1x1 work
   conv2 = vl_nnconv(pool1, 'size', [5, 5, 20, 50], 'weightScale', 0.01) ;
   pool2 = vl_nnpool(conv2, 2, 'stride', 2) ;
   
@@ -108,7 +108,7 @@ function [net, stats] = mnist_example(varargin)
   end
     
     % plot output of layers 
-    figure(3) ; vl_tshow(net.vars(net.getVarIndex('conv3'))); title('Conv3 filters') ;
+    figure(3) ; vl_tshow(net.getValue('conv3')); title('Conv3 filters') ;
 %     figure(4) ; vl_tshow(net.getValue('conv2_filters')) ; title('Conv2 filters') ;
 %     figure(5) ; vl_tshow(net.getValue('x_filters')) ; title('Conv3 filters') ;
   
